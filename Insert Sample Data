@@ -1,0 +1,23 @@
+INSERT INTO Students (name, email, age) VALUES
+('Meriam Gannar', 'meriam@mail.com', 22),
+('Ali Ben', 'ali@mail.com', 20),
+('Sara Khaled', 'sara@mail.com', 23);
+
+
+INSERT INTO Instructors (name, department) VALUES
+('Dr. Smith', 'Computer Science'),
+('Dr. Brown', 'Mathematics'),
+('Dr. White', 'Information Systems');
+
+
+INSERT INTO Courses (title, credits, instructor_id) VALUES
+('Database Systems', 3, 1),
+('Algorithms', 4, 1),
+('Linear Algebra', 3, 2);
+
+
+INSERT INTO Enrollments (student_id, course_id, grade) VALUES
+(1, 1, 'A'),
+(1, 2, 'B'),
+(2, 1, 'B+'),
+(3, 3, 'A');
