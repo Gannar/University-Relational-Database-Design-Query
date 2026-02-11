@@ -1,0 +1,25 @@
+📘 Students
+student_id (PK)
+name (NOT NULL)
+email (UNIQUE, NOT NULL)
+age (CHECK > 17)
+
+
+📗 Instructors
+instructor_id (PK)
+name (NOT NULL)
+department (NOT NULL)
+
+📙 Courses
+(Each course is taught by one instructor → FK)
+course_id (PK)
+title (NOT NULL)
+credits (CHECK > 0)
+instructor_id (FK → Instructors)
+
+📝 Enrollments
+(Junction table for many-to-many between Students & Courses)
+student_id (FK → Students)
+course_id (FK → Courses)
+grade (optional)
+Composite PK: (student_id, course_id)
