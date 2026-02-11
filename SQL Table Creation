@@ -1,0 +1,32 @@
+CREATE TABLE Students (
+  student_id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(150) NOT NULL UNIQUE,
+  age INT CHECK (age > 17)
+);
+
+CREATE TABLE Instructors (
+  instructor_id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  department VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Courses (
+  course_id INT PRIMARY KEY AUTO_INCREMENT,
+  title VARCHAR(150) NOT NULL,
+  credits INT CHECK (credits > 0),
+  instructor_id INT,
+  FOREIGN KEY (instructor_id) REFERENCES Instructors(instructor_id)
+    ON DELETE SET NULL
+);
+
+CREATE TABLE Enrollments (
+  student_id INT,
+  course_id INT,
+  grade VARCHAR(5),
+  PRIMARY KEY (student_id, course_id),
+  FOREIGN KEY (student_id) REFERENCES Students(student_id)
+    ON DELETE CASCADE,
+  FOREIGN KEY (course_id) REFERENCES Courses(course_id)
+    ON DELETE CASCADE
+);
