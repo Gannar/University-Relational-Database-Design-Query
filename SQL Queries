@@ -1,0 +1,33 @@
+🔍 1. Students enrolled in “Database Systems”
+
+SELECT s.student_id, s.name, s.email
+FROM Students s
+JOIN Enrollments e ON s.student_id = e.student_id
+JOIN Courses c ON e.course_id = c.course_id
+WHERE c.title = 'Database Systems';
+
+📚 2. All courses + instructor names
+
+SELECT c.title, i.name AS instructor_name
+FROM Courses c
+JOIN Instructors i ON c.instructor_id = i.instructor_id;
+
+
+🚫 3. Students not enrolled in any course
+
+SELECT s.student_id, s.name
+FROM Students s
+LEFT JOIN Enrollments e ON s.student_id = e.student_id
+WHERE e.student_id IS NULL;
+
+✏️ 4. Update a student’s email
+
+UPDATE Students
+SET email = 'new_meriam@mail.com'
+WHERE student_id = 1;
+
+🗑️ 5. Delete a course by ID
+
+DELETE FROM Courses
+WHERE course_id = 3;
+
